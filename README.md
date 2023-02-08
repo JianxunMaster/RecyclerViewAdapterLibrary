@@ -28,7 +28,7 @@
     Step 2. Add the dependency
 
         dependencies {
-                implementation 'com.github.JianxunMaster:RecyclerViewAdapterLibrary:Tag'
+                implementation 'com.github.JianxunMaster:RecyclerViewAdapterLibrary:v1.0.0'
         }
 
 # 演示和使用
