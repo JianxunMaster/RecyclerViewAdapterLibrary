@@ -8,7 +8,7 @@
 
 # 项目中如何引用依赖库
 
-    [![](https://jitpack.io/v/JianxunMaster/RecyclerViewAdapterLibrary.svg)](https://jitpack.io/#JianxunMaster/RecyclerViewAdapterLibrary)
+[![](https://jitpack.io/v/JianxunMaster/RecyclerViewAdapterLibrary.svg)](https://jitpack.io/#JianxunMaster/RecyclerViewAdapterLibrary)
 
     How to
 
