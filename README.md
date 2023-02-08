@@ -6,6 +6,31 @@
 
    2.节点列表适配器（多级列表适配器）
 
+# 项目中如何引用依赖库
+
+    已发布版本[![](https://jitpack.io/v/JianxunMaster/RecyclerViewAdapterLibrary.svg)](https://jitpack.io/#JianxunMaster/RecyclerViewAdapterLibrary)
+
+    How to
+
+    To get a Git project into your build:
+
+    Step 1. Add the JitPack repository to your build file
+
+    Add it in your root build.gradle at the end of repositories:
+
+        allprojects {
+            repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+            }
+        }
+
+    Step 2. Add the dependency
+
+        dependencies {
+                implementation 'com.github.JianxunMaster:RecyclerViewAdapterLibrary:Tag'
+        }
+
 # 演示和使用
 
     演示安装包：file/apk-release.apk
