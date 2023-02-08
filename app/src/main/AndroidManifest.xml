@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".MainActivity"
+            android:label="首页导航">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DemoActivity"
+            android:label="使用示例" />
+        <activity
+            android:name=".activity.BaseCommonAdapterActivity"
+            android:label="通用适配器（多布局）" />
+        <activity
+            android:name=".activity.BaseCommonBinderAdapterActivity"
+            android:label="通用适配器（dataBinding多布局）" />
+        <activity
+            android:name=".activity.BaseCommonViewAdapterActivity"
+            android:label="通用适配器（view多布局）" />
+        <activity
+            android:name=".activity.BaseNodeAdapterActivity"
+            android:label="节点适配器（多布局）" />
+        <activity
+            android:name=".activity.BaseNodeBinderAdapterActivity"
+            android:label="节点适配器（dataBinding多布局）" />
+        <activity
+            android:name=".activity.BaseNodeViewAdapterActivity"
+            android:label="节点适配器（view多布局）" />
+        <activity
+            android:name=".activity.SimpleCommonAdapterActivity"
+            android:label="通用适配器（单布局）" />
+        <activity
+            android:name=".activity.SimpleCommonBinderAdapterActivity"
+            android:label="通用适配器（dataBinding单布局）" />
+        <activity
+            android:name=".activity.SimpleCommonViewAdapterActivity"
+            android:label="通用适配器（view单布局）" />
+        <activity
+            android:name=".activity.SimpleNodeAdapterActivity"
+            android:label="节点适配器（单布局）" />
+        <activity
+            android:name=".activity.SimpleNodeBinderAdapterActivity"
+            android:label="节点适配器（dataBinding单布局）" />
+        <activity
+            android:name=".activity.SimpleNodeViewAdapterActivity"
+            android:label="节点适配器（view单布局）" />
+    </application>
+
+</manifest>
