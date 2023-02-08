@@ -4,15 +4,13 @@ import com.lijianxun.adapter.library.state.SelectState
 import com.lijianxun.adapter.library.util.nodeForEach
 
 /**
- * 树节点
+ * 节点
  */
 open class Node<T>(var data: T) {
-    var parent: Node<T>? = null// 父类
+    var parent: Node<T>? = null// 父节点
     var opened = false // 是否展开
     var selected = false// 是否选中
-
-    var children: MutableList<Node<T>>? = null
-        // 子集
+    var children: MutableList<Node<T>>? = null// 子集
         set(value) {
             field = value
             value?.forEach {
@@ -20,6 +18,9 @@ open class Node<T>(var data: T) {
             }
         }
 
+    /**
+     * 添加子节点
+     */
     fun addChild(child: Node<T>) {
         if (children == null) {
             children = mutableListOf()
@@ -28,6 +29,9 @@ open class Node<T>(var data: T) {
         child.parent = this
     }
 
+    /**
+     * 节点层级
+     */
     fun getLevel(): Int {
         var level = 0
         var p = parent
@@ -38,14 +42,23 @@ open class Node<T>(var data: T) {
         return level
     }
 
+    /**
+     * 是否根节点
+     */
     fun isRoot(): Boolean {
         return parent == null
     }
 
+    /**
+     * 是否叶子节点
+     */
     fun isLeaf(): Boolean {
         return children.isNullOrEmpty()
     }
 
+    /**
+     * 节点的选择状态
+     */
     fun getSelectState(): SelectState {
         if (isLeaf()) {
             return if (selected) SelectState.ALL else SelectState.NONE
@@ -72,7 +85,7 @@ open class Node<T>(var data: T) {
     /**
      * 切换下一个选中状态：部分选->未选->全选
      */
-    fun setSelectStatePart2None2All() {
+    fun changeSelectStatePart2None2All() {
         if (isLeaf()) {
             selected = !selected
         } else {
@@ -89,7 +102,7 @@ open class Node<T>(var data: T) {
     /**
      * 切换下一个选中状态：部分选->全选->未选
      */
-    fun setSelectStatePart2All2None() {
+    fun changeSelectStatePart2All2None() {
         if (isLeaf()) {
             selected = !selected
         } else {

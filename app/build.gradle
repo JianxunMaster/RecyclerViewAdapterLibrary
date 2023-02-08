@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    signingConfigs {
+        sign {
+            storeFile file('..\\keystore\\keystore.jks')
+            storePassword '123456'
+            keyAlias 'android'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion '30.0.2'
     defaultConfig {
@@ -11,6 +19,7 @@ android {
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.sign
     }
     buildTypes {
         release {

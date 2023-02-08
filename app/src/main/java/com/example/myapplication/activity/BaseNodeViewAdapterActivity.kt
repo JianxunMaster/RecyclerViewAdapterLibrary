@@ -19,7 +19,7 @@ import com.lijianxun.adapter.library.viewholder.BaseViewHolder
 class BaseNodeViewAdapterActivity : BaseRecyclerViewActivity() {
     override fun initView() {
         val adapter: BaseNodeAdapter<String> = BaseNodeAdapter(createTestNodeData())
-        adapter.addViewDelegate(object : NodeViewDelegate<String> {
+        adapter.addItemDelegate(object : NodeViewDelegate<String> {
 
             override fun getLayoutId(): Int {
                 return R.layout.item_test_1
@@ -42,14 +42,14 @@ class BaseNodeViewAdapterActivity : BaseRecyclerViewActivity() {
                     else -> R.drawable.ic_baseline_arrow_right_24
                 })
                 holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                    item.setSelectStatePart2All2None()
+                    item.changeSelectStatePart2All2None()
                     adapter.notifyDataSetChanged()
                 }
                 holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
-                holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
             }
         })
-        adapter.addViewDelegate(object : NodeViewDelegate<String> {
+        adapter.addItemDelegate(object : NodeViewDelegate<String> {
 
             override fun getLayoutId(): Int {
                 return R.layout.item_test_2
@@ -73,13 +73,13 @@ class BaseNodeViewAdapterActivity : BaseRecyclerViewActivity() {
                 })
                 holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                 holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                    item.setSelectStatePart2All2None()
+                    item.changeSelectStatePart2All2None()
                     adapter.notifyDataSetChanged()
                 }
-                holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
             }
         })
-        adapter.addViewDelegate(object : NodeViewDelegate<String> {
+        adapter.addItemDelegate(object : NodeViewDelegate<String> {
 
             override fun getLayoutId(): Int {
                 return R.layout.item_test_3
@@ -103,10 +103,10 @@ class BaseNodeViewAdapterActivity : BaseRecyclerViewActivity() {
                 })
                 holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                 holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                    item.setSelectStatePart2All2None()
+                    item.changeSelectStatePart2All2None()
                     adapter.notifyDataSetChanged()
                 }
-                holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
             }
         })
         dataBinding.recyclerView.adapter = adapter

@@ -16,7 +16,7 @@ import com.lijianxun.adapter.library.delegate.BaseCommonDelegate
 class BaseCommonAdapterActivity : BaseRecyclerViewActivity() {
     override fun initView() {
         val adapter = BaseCommonAdapter(createTestData())
-        adapter.addViewDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
+        adapter.addItemDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_1
             }
@@ -33,7 +33,7 @@ class BaseCommonAdapterActivity : BaseRecyclerViewActivity() {
                 holder.getView<TextView>(R.id.textTv)?.text = item
             }
         })
-        adapter.addViewDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
+        adapter.addItemDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_2
             }
@@ -50,7 +50,7 @@ class BaseCommonAdapterActivity : BaseRecyclerViewActivity() {
                 holder.getView<TextView>(R.id.textTv)?.text = item
             }
         })
-        adapter.addViewDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
+        adapter.addItemDelegate(object : BaseCommonDelegate<String, MyViewHolder> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_3
             }

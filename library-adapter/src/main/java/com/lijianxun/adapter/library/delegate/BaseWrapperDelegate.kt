@@ -6,9 +6,16 @@ import com.lijianxun.adapter.library.BaseCommonAdapter
 import com.lijianxun.adapter.library.viewholder.BaseViewHolder
 
 /**
- * 给非dataBinding使用的默认委托
+ * 给view使用的默认委托
  */
 interface BaseWrapperDelegate<T, V : BaseViewHolder> {
+    /**
+     * 指定适配器的viewType
+     */
+    fun getViewType(): Int {
+        return getLayoutId()
+    }
+
     /**
      * 当前根视图布局id
      */

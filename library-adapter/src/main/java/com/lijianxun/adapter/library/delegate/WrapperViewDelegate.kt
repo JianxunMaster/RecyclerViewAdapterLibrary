@@ -4,7 +4,7 @@ import android.view.View
 import com.lijianxun.adapter.library.viewholder.BaseViewHolder
 
 /**
- * 给非dataBinding使用的默认委托
+ * 给view使用的默认委托
  */
 interface WrapperViewDelegate<T> : BaseWrapperDelegate<T, BaseViewHolder> {
     override fun getViewHolder(itemView: View): BaseViewHolder {

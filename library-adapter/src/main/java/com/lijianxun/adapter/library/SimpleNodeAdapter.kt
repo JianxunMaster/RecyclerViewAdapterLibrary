@@ -6,14 +6,14 @@ import com.lijianxun.adapter.library.delegate.BaseNodeDelegate
 import com.lijianxun.adapter.library.viewholder.BaseViewHolder
 
 /**
- * 树节点适配器（单布局）
+ * 节点适配器（单布局）
  */
 abstract class SimpleNodeAdapter<T, V : BaseViewHolder>(layoutId: Int, data: MutableList<Node<T>>?) : BaseNodeAdapter<T>(data) {
     abstract fun getViewHolder(itemView: View): V
     abstract fun convert(adapter: SimpleNodeAdapter<T, V>, holder: V, item: Node<T>, position: Int)
 
     init {
-        addViewDelegate(object : BaseNodeDelegate<T, V> {
+        addItemDelegate(object : BaseNodeDelegate<T, V> {
             override fun getLayoutId(): Int {
                 return layoutId
             }

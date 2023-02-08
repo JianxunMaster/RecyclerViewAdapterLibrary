@@ -6,14 +6,14 @@ import com.lijianxun.adapter.library.delegate.BaseCommonDelegate
 import com.lijianxun.adapter.library.viewholder.BaseViewHolder
 
 /**
- * 单布局适配器
+ * 通用适配器（单布局）
  */
 abstract class SimpleCommonAdapter<T, V : BaseViewHolder>(@LayoutRes var layoutId: Int, data: MutableList<T>?) : BaseCommonAdapter<T>(data) {
     abstract fun getViewHolder(itemView: View): V
     abstract fun convert(adapter: SimpleCommonAdapter<T, V>, holder: V, item: T, position: Int)
 
     init {
-        addViewDelegate(object : BaseCommonDelegate<T, V> {
+        addItemDelegate(object : BaseCommonDelegate<T, V> {
             override fun getLayoutId(): Int {
                 return layoutId
             }

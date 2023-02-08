@@ -151,7 +151,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                 if (isDataBinding) {
                     // 节点 多布局 dataBinding
                     BaseNodeAdapter(node)
-                            .addViewDelegate(object : NodeBinderDelegate<String, ItemTest1Binding> {
+                            .addItemDelegate(object : NodeBinderDelegate<String, ItemTest1Binding> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_1
@@ -174,14 +174,14 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                         else -> R.drawable.ic_baseline_arrow_right_24
                                     })
                                     holder.dataBinding.ivSelect.setOnClickListener {
-                                        item.setSelectStatePart2None2All()
+                                        item.changeSelectStatePart2None2All()
                                         adapter.notifyDataSetChanged()
                                     }
                                     holder.dataBinding.textTv.text = item.data
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
-                            .addViewDelegate(object : NodeBinderDelegate<String, ItemTest2Binding> {
+                            .addItemDelegate(object : NodeBinderDelegate<String, ItemTest2Binding> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_2
@@ -204,14 +204,14 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                         else -> R.drawable.ic_baseline_arrow_right_24
                                     })
                                     holder.dataBinding.ivSelect.setOnClickListener {
-                                        item.setSelectStatePart2None2All()
+                                        item.changeSelectStatePart2None2All()
                                         adapter.notifyDataSetChanged()
                                     }
                                     holder.dataBinding.textTv.text = item.data
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
-                            .addViewDelegate(object : NodeBinderDelegate<String, ItemTest3Binding> {
+                            .addItemDelegate(object : NodeBinderDelegate<String, ItemTest3Binding> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_3
@@ -234,17 +234,17 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                         else -> R.drawable.ic_baseline_arrow_right_24
                                     })
                                     holder.dataBinding.ivSelect.setOnClickListener {
-                                        item.setSelectStatePart2None2All()
+                                        item.changeSelectStatePart2None2All()
                                         adapter.notifyDataSetChanged()
                                     }
                                     holder.dataBinding.textTv.text = item.data
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
                 } else {
                     //节点 多布局 view
                     BaseNodeAdapter(node)
-                            .addViewDelegate(object : NodeViewDelegate<String> {
+                            .addItemDelegate(object : NodeViewDelegate<String> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_1
@@ -267,14 +267,14 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                         else -> R.drawable.ic_baseline_arrow_right_24
                                     })
                                     holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                                        item.setSelectStatePart2All2None()
+                                        item.changeSelectStatePart2All2None()
                                         adapter.notifyDataSetChanged()
                                     }
                                     holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
-                            .addViewDelegate(object : NodeViewDelegate<String> {
+                            .addItemDelegate(object : NodeViewDelegate<String> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_2
@@ -298,13 +298,13 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     })
                                     holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                                     holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                                        item.setSelectStatePart2All2None()
+                                        item.changeSelectStatePart2All2None()
                                         adapter.notifyDataSetChanged()
                                     }
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
-                            .addViewDelegate(object : NodeViewDelegate<String> {
+                            .addItemDelegate(object : NodeViewDelegate<String> {
 
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_3
@@ -328,10 +328,10 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     })
                                     holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                                     holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                                        item.setSelectStatePart2All2None()
+                                        item.changeSelectStatePart2All2None()
                                         adapter.notifyDataSetChanged()
                                     }
-                                    holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                                    holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                                 }
                             })
                 }
@@ -352,11 +352,11 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                 else -> R.drawable.ic_baseline_arrow_right_24
                             })
                             holder.dataBinding.ivSelect.setOnClickListener {
-                                item.setSelectStatePart2None2All()
+                                item.changeSelectStatePart2None2All()
                                 adapter.notifyDataSetChanged()
                             }
                             holder.dataBinding.textTv.text = item.data
-                            holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                            holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                         }
                     }
                 } else {
@@ -376,10 +376,10 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                             })
                             holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                             holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                                item.setSelectStatePart2All2None()
+                                item.changeSelectStatePart2All2None()
                                 adapter.notifyDataSetChanged()
                             }
-                            holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                            holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
                         }
                     }
                 }
@@ -389,7 +389,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                 if (isDataBinding) {
                     //普通 多布局 dataBinding
                     BaseCommonAdapter(common)
-                            .addViewDelegate(object : CommonBinderDelegate<String, ItemTest1Binding> {
+                            .addItemDelegate(object : CommonBinderDelegate<String, ItemTest1Binding> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_1
                                 }
@@ -402,7 +402,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     holder.dataBinding.textTv.text = item
                                 }
                             })
-                            .addViewDelegate(object : CommonBinderDelegate<String, ItemTest2Binding> {
+                            .addItemDelegate(object : CommonBinderDelegate<String, ItemTest2Binding> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_2
                                 }
@@ -415,7 +415,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     holder.dataBinding.textTv.text = item
                                 }
                             })
-                            .addViewDelegate(object : CommonBinderDelegate<String, ItemTest3Binding> {
+                            .addItemDelegate(object : CommonBinderDelegate<String, ItemTest3Binding> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_3
                                 }
@@ -431,7 +431,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                 } else {
                     //普通 多布局 view
                     BaseCommonAdapter(common)
-                            .addViewDelegate(object : CommonViewDelegate<String> {
+                            .addItemDelegate(object : CommonViewDelegate<String> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_1
                                 }
@@ -444,7 +444,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     holder.itemView.findViewById<TextView>(R.id.textTv).text = item
                                 }
                             })
-                            .addViewDelegate(object : CommonViewDelegate<String> {
+                            .addItemDelegate(object : CommonViewDelegate<String> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_2
                                 }
@@ -457,7 +457,7 @@ class DemoActivity : BaseActivity<ActivityDemoBinding>() {
                                     holder.itemView.findViewById<TextView>(R.id.textTv).text = item
                                 }
                             })
-                            .addViewDelegate(object : CommonViewDelegate<String> {
+                            .addItemDelegate(object : CommonViewDelegate<String> {
                                 override fun getLayoutId(): Int {
                                     return R.layout.item_test_3
                                 }

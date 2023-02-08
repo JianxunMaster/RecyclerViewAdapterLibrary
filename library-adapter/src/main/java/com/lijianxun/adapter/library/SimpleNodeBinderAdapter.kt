@@ -6,13 +6,13 @@ import com.lijianxun.adapter.library.delegate.NodeBinderDelegate
 import com.lijianxun.adapter.library.viewholder.BaseBinderHolder
 
 /**
- * 给非dataBinding使用的默认适配器
+ * 节点适配器（dataBinding 单布局）
  */
 abstract class SimpleNodeBinderAdapter<T, V : ViewDataBinding>(layoutId: Int, data: MutableList<Node<T>>?) : BaseNodeAdapter<T>(data) {
     abstract fun convert(adapter: SimpleNodeBinderAdapter<T, V>, holder: BaseBinderHolder<V>, item: Node<T>, position: Int)
 
     init {
-        addViewDelegate(object : NodeBinderDelegate<T, V> {
+        addItemDelegate(object : NodeBinderDelegate<T, V> {
             override fun getLayoutId(): Int {
                 return layoutId
             }

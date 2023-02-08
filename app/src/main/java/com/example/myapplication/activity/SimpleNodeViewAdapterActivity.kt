@@ -32,10 +32,10 @@ class SimpleNodeViewAdapterActivity : BaseRecyclerViewActivity() {
                 })
                 holder.itemView.findViewById<TextView>(R.id.textTv).text = item.data
                 holder.itemView.findViewById<ImageView>(R.id.iv_select).setOnClickListener {
-                    item.setSelectStatePart2All2None()
+                    item.changeSelectStatePart2All2None()
                     adapter.notifyDataSetChanged()
                 }
-                holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
             }
         }
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(this)

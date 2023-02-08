@@ -29,11 +29,11 @@ class SimpleNodeBinderAdapterActivity : BaseRecyclerViewActivity() {
                     else -> R.drawable.ic_baseline_arrow_right_24
                 })
                 holder.dataBinding.ivSelect.setOnClickListener {
-                    item.setSelectStatePart2None2All()
+                    item.changeSelectStatePart2None2All()
                     adapter.notifyDataSetChanged()
                 }
                 holder.dataBinding.textTv.text = item.data
-                holder.itemView.setOnClickListener { adapter.openOrCloseNode(item) }
+                holder.itemView.setOnClickListener { adapter.toggleOpenOrCloseNode(item) }
             }
         }
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(this)

@@ -6,19 +6,19 @@ import com.lijianxun.adapter.library.util.nodeForEach
 import java.util.*
 
 /**
- * 树节点多级列表适配器
+ * 节点适配器（多布局）
  *
- * @param <T> 泛型，树节点数据的泛型</T>
+ * @param <T> 泛型，节点数据的泛型</T>
  */
 open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<Node<T>>(data) {
 
-    val showList: MutableList<Node<T>> = mutableListOf() // 当前显示的树节点
+    val showList: MutableList<Node<T>> = mutableListOf() // 当前显示的节点
     override fun getContentData(): MutableList<Node<T>> {
         return showList
     }
 
     /**
-     * 设置数据
+     * 设置节点数据
      */
     override fun setList(data: MutableList<Node<T>>?) {
         this.data = data
@@ -26,7 +26,7 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 刷新
+     * 刷新所有节点
      */
     fun refreshAllNode() {
         initAdapter()
@@ -44,9 +44,9 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 展开树节点
+     * 展开节点
      *
-     * @param node 树节点
+     * @param node 节点
      */
     fun openNode(node: Node<T>) {
         node.opened = true
@@ -65,9 +65,9 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 收缩树节点
+     * 收起节点
      *
-     * @param node 树节点
+     * @param node 节点
      */
     fun closeNode(node: Node<T>) {
         node.opened = false
@@ -92,11 +92,11 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 伸缩书记诶单
+     * 切换展开或收起节点
      *
-     * @param node 树节点
+     * @param node 节点
      */
-    fun openOrCloseNode(node: Node<T>) {
+    fun toggleOpenOrCloseNode(node: Node<T>) {
         if (node.opened) {
             closeNode(node)
         } else {
@@ -105,7 +105,7 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 展开所有层级的树节点
+     * 展开所有层级的节点
      */
     fun openAllNode() {
         data?.nodeForEach({
@@ -115,7 +115,7 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 收缩所有层级的树节点
+     * 收起所有层级的节点
      */
     fun closeAllNode() {
         data?.nodeForEach({
@@ -125,7 +125,7 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
     }
 
     /**
-     * 展开层级内的树节点
+     * 展开层级内的节点
      *
      * @param level 层级
      */
@@ -140,7 +140,7 @@ open class BaseNodeAdapter<T>(data: MutableList<Node<T>>?) : BaseCommonAdapter<N
      * 构造器
      *
      * @param context  上下文
-     * @param rootList 树节点根列表（所有数据）
+     * @param rootList 节点根列表（所有数据）
      */
     init {
         initAdapter()

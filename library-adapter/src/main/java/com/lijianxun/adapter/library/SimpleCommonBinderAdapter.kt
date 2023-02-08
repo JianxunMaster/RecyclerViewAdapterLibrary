@@ -6,13 +6,13 @@ import com.lijianxun.adapter.library.delegate.CommonBinderDelegate
 import com.lijianxun.adapter.library.viewholder.BaseBinderHolder
 
 /**
- * 给非dataBinding使用的默认适配器
+ * 通用适配器（dataBinding 单布局）
  */
 abstract class SimpleCommonBinderAdapter<T, V : ViewDataBinding>(@LayoutRes var layoutId: Int, data: MutableList<T>?) : BaseCommonAdapter<T>(data) {
     abstract fun convert(adapter: SimpleCommonBinderAdapter<T, V>, holder: BaseBinderHolder<V>, item: T, position: Int)
 
     init {
-        addViewDelegate(object : CommonBinderDelegate<T, V> {
+        addItemDelegate(object : CommonBinderDelegate<T, V> {
             override fun getLayoutId(): Int {
                 return layoutId
             }

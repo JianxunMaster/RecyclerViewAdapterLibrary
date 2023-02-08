@@ -34,17 +34,17 @@ open class BaseCommonAdapter<T>(var data: MutableList<T>?) : RecyclerView.Adapte
 
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): BaseViewHolder {
         emptyDelegate?.let {
-            if (it.getLayoutId() == viewType) {
+            if (it.getViewType() == viewType) {
                 return it.getViewHolder(LayoutInflater.from(parent.context).inflate(it.getLayoutId(), parent, false))
             }
         }
-        headerDelegateList.firstOrNull { it.getLayoutId() == viewType }?.let {
+        headerDelegateList.firstOrNull { it.getViewType() == viewType }?.let {
             return it.getViewHolder(LayoutInflater.from(parent.context).inflate(it.getLayoutId(), parent, false))
         }
-        dataDelegateList.firstOrNull { it.getLayoutId() == viewType }?.let {
+        dataDelegateList.firstOrNull { it.getViewType() == viewType }?.let {
             return it.getViewHolder(LayoutInflater.from(parent.context).inflate(it.getLayoutId(), parent, false))
         }
-        footerDelegateList.firstOrNull { it.getLayoutId() == viewType }?.let {
+        footerDelegateList.firstOrNull { it.getViewType() == viewType }?.let {
             return it.getViewHolder(LayoutInflater.from(parent.context).inflate(it.getLayoutId(), parent, false))
         }
         throw java.lang.IllegalArgumentException("未找到 viewType = $viewType 对应的 ViewHolder")
@@ -84,10 +84,10 @@ open class BaseCommonAdapter<T>(var data: MutableList<T>?) : RecyclerView.Adapte
 
     override fun getItemViewType(position: Int): Int {
         return when {
-            isHeader(position) -> getHeaderDelegate(position).getLayoutId()
-            isFooter(position) -> getFooterDelegate(position).getLayoutId()
-            isEmpty(position) -> getEmptyDelegate(position).getLayoutId()
-            isData(position) -> getDataDelegate(position).getLayoutId()
+            isHeader(position) -> getHeaderDelegate(position).getViewType()
+            isFooter(position) -> getFooterDelegate(position).getViewType()
+            isEmpty(position) -> getEmptyDelegate(position).getViewType()
+            isData(position) -> getDataDelegate(position).getViewType()
             else -> throw IllegalArgumentException("找不到匹配类型")
         }
     }
@@ -97,7 +97,7 @@ open class BaseCommonAdapter<T>(var data: MutableList<T>?) : RecyclerView.Adapte
      *
      * @param delegate 样式
      */
-    fun <V : BaseViewHolder> addViewDelegate(delegate: BaseCommonDelegate<T, V>): BaseCommonAdapter<T> {
+    fun <V : BaseViewHolder> addItemDelegate(delegate: BaseCommonDelegate<T, V>): BaseCommonAdapter<T> {
         dataDelegateList.add(delegate as BaseCommonDelegate<T, BaseViewHolder>)
         return this
     }
@@ -107,7 +107,7 @@ open class BaseCommonAdapter<T>(var data: MutableList<T>?) : RecyclerView.Adapte
      *
      * @param delegate 样式
      */
-    fun <V : BaseViewHolder> removeViewDelegate(delegate: BaseWrapperDelegate<T, V>): BaseCommonAdapter<T> {
+    fun <V : BaseViewHolder> removeItemDelegate(delegate: BaseWrapperDelegate<T, V>): BaseCommonAdapter<T> {
         dataDelegateList.remove(delegate)
         return this
     }

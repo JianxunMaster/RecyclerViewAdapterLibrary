@@ -17,7 +17,7 @@ import com.lijianxun.adapter.library.viewholder.BaseBinderHolder
 class BaseCommonBinderAdapterActivity : BaseRecyclerViewActivity() {
     override fun initView() {
         val adapter = BaseCommonAdapter(createTestData())
-        adapter.addViewDelegate(object : CommonBinderDelegate<String, ItemTest1Binding> {
+        adapter.addItemDelegate(object : CommonBinderDelegate<String, ItemTest1Binding> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_1
             }
@@ -30,7 +30,7 @@ class BaseCommonBinderAdapterActivity : BaseRecyclerViewActivity() {
                 holder.dataBinding.textTv.text = item
             }
         })
-        adapter.addViewDelegate(object : CommonBinderDelegate<String, ItemTest2Binding> {
+        adapter.addItemDelegate(object : CommonBinderDelegate<String, ItemTest2Binding> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_2
             }
@@ -43,7 +43,7 @@ class BaseCommonBinderAdapterActivity : BaseRecyclerViewActivity() {
                 holder.dataBinding.textTv.text = item
             }
         })
-        adapter.addViewDelegate(object : CommonBinderDelegate<String, ItemTest3Binding> {
+        adapter.addItemDelegate(object : CommonBinderDelegate<String, ItemTest3Binding> {
             override fun getLayoutId(): Int {
                 return R.layout.item_test_3
             }
